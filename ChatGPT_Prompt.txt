@@ -1,5 +1,0 @@
-Please help me set up this AI auto-poster system locally.
-
-Use Docker to run n8n on my computer, help me connect my Google Drive, and show me how to import the workflow and connect UploadPost or sid_tt to post to TikTok.
-
-I have all the files from the AutomationPro local repo.
