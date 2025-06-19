@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutomationPro Local Installer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 100px auto;
+      padding: 40px;
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+    h1 {
+      color: #f3b13a;
+    }
+    input[type="password"], button {
+      padding: 10px;
+      margin-top: 15px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: none;
+      width: 80%;
+      max-width: 300px;
+    }
+    input[type="password"] {
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #f3b13a;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    a {
+      color: #f3b13a;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .downloads {
+      text-align: left;
+      margin-top: 30px;
+    }
+    .downloads ul {
+      list-style: none;
+      padding: 0;
+    }
+    .downloads li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="login">
+    <h1>Enter Access Password</h1>
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="checkPassword()">Unlock Access</button>
+    <div id="error" class="hidden" style="color: red; margin-top: 10px;">Incorrect password. Try again.</div>
+  </div>
+
+  <div class="container hidden" id="content">
+    <h1>🚀 You're In! Welcome to AutomationPro</h1>
+    <p>This system lets you run powerful auto-posting workflows locally — totally free using Docker + n8n.</p>
+
+    <div class="downloads">
+      <h2>📦 Download Everything</h2>
+      <ul>
+        <li><a href="automationpro-local-poster-complete.zip" download>⬇️ Full Setup ZIP</a></li>
+        <li><a href="Local_Install_Guide.pdf" download>📘 Install Guide (PDF)</a></li>
+        <li><a href="ChatGPT_Prompt.txt" download>💬 ChatGPT Prompt</a></li>
+        <li><a href="Automation Pro Workflow.json" download>⚙️ n8n Workflow File</a></li>
+      </ul>
+    </div>
+    <p style="margin-top: 30px;">Use the install guide or upload it to ChatGPT to walk you through the full setup. Automation is the future. 💼</p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error");
+      if (input === "autoposter2025") {
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("content").classList.remove("hidden");
+      } else {
+        error.classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
