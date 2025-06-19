@@ -3,101 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AutomationPro Local Installer</title>
+  <title>Automation Pro Local Poster</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
-      color: white;
-      margin: 0;
-      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
     }
     .container {
       max-width: 700px;
-      margin: 100px auto;
-      padding: 40px;
-      background-color: #1e1e1e;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-      text-align: center;
+      margin: auto;
+      padding: 30px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
     }
     h1 {
-      color: #f3b13a;
-    }
-    input[type="password"], button {
-      padding: 10px;
-      margin-top: 15px;
-      font-size: 1em;
-      border-radius: 8px;
-      border: none;
-      width: 80%;
-      max-width: 300px;
-    }
-    input[type="password"] {
+      font-size: 32px;
       margin-bottom: 10px;
     }
-    button {
-      background-color: #f3b13a;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
+    p {
+      color: #ccc;
+      margin-bottom: 30px;
     }
-    .hidden {
-      display: none;
-    }
-    a {
-      color: #f3b13a;
+    a.button {
+      display: inline-block;
+      background-color: #4e9eff;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
       text-decoration: none;
+      font-weight: bold;
+      margin: 10px;
     }
-    a:hover {
-      text-decoration: underline;
+    input[type="password"] {
+      padding: 12px;
+      width: 100%;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
     }
-    .downloads {
-      text-align: left;
-      margin-top: 30px;
-    }
-    .downloads ul {
-      list-style: none;
-      padding: 0;
-    }
-    .downloads li {
-      margin: 10px 0;
-    }
+    .hidden { display: none; }
+    .error { color: red; margin-top: 10px; }
+    ul { list-style-type: none; padding: 0; }
+    li { margin: 10px 0; }
   </style>
 </head>
 <body>
-  <div class="container" id="login">
+  <div class="container" id="login-container">
     <h1>Enter Access Password</h1>
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="checkPassword()">Unlock Access</button>
-    <div id="error" class="hidden" style="color: red; margin-top: 10px;">Incorrect password. Try again.</div>
+    <p>This page is private. Please enter your password to access the download system.</p>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkPassword()">Unlock</button>
+    <div class="error hidden" id="error">Incorrect password.</div>
   </div>
 
-  <div class="container hidden" id="content">
-    <h1>🚀 You're In! Welcome to AutomationPro</h1>
-    <p>This system lets you run powerful auto-posting workflows locally — totally free using Docker + n8n.</p>
+  <div class="container hidden" id="content-container">
+    <h1>🎉 Automation Pro Local Poster</h1>
+    <p>Download the full system files to run this AI workflow on your own device, completely free.</p>
 
-    <div class="downloads">
-      <h2>📦 Download Everything</h2>
-      <ul>
-        <li><a href="automationpro-local-poster-complete.zip" download>⬇️ Full Setup ZIP</a></li>
-        <li><a href="Local_Install_Guide.pdf" download>📘 Install Guide (PDF)</a></li>
-        <li><a href="ChatGPT_Prompt.txt" download>💬 ChatGPT Prompt</a></li>
-        <li><a href="Automation Pro Workflow.json" download>⚙️ n8n Workflow File</a></li>
-      </ul>
-    </div>
-    <p style="margin-top: 30px;">Use the install guide or upload it to ChatGPT to walk you through the full setup. Automation is the future. 💼</p>
+    <ul>
+      <li><a class="button" href="Automation_Pro_Workflow.json" download>📦 Download Workflow (JSON)</a></li>
+      <li><a class="button" href="Local_Install_Guide.pdf" download>📖 Install Guide (PDF)</a></li>
+      <li><a class="button" href="ChatGPT_Prompt.txt" download>🤖 ChatGPT Setup Prompt</a></li>
+    </ul>
+
+    <p style="margin-top: 30px; color: #999;">Just follow the guide or paste the prompt into ChatGPT to begin your install. <br/>Welcome to Automation Pro. 🚀</p>
   </div>
 
   <script>
     function checkPassword() {
-      const input = document.getElementById("password").value;
-      const error = document.getElementById("error");
-      if (input === "autoposter2025") {
-        document.getElementById("login").classList.add("hidden");
-        document.getElementById("content").classList.remove("hidden");
+      const entered = document.getElementById('password').value;
+      const correct = 'autoposter2025';
+      const error = document.getElementById('error');
+
+      if (entered === correct) {
+        document.getElementById('login-container').classList.add('hidden');
+        document.getElementById('content-container').classList.remove('hidden');
       } else {
-        error.classList.remove("hidden");
+        error.classList.remove('hidden');
       }
     }
   </script>
