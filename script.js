@@ -1,9 +1,9 @@
-document.getElementById('authForm').addEventListener('submit', function(e) {
+document.getElementById("authForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  const password = document.getElementById('password').value;
+  const password = document.getElementById("password").value;
   if (password === "autoposter2025") {
-    document.getElementById('downloads').classList.remove('hidden');
+    window.location.href = "dashboard.html"; // 👈 or "landing.html" or whatever the destination is
   } else {
-    alert("Incorrect password. Try again.");
+    alert("Incorrect password. Please try again.");
   }
 });
